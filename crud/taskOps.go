@@ -1,7 +1,6 @@
 package crud
 
 import (
-	// "fmt"
 	"models"
 
 	"gorm.io/gorm"
@@ -49,7 +48,7 @@ func UpdateTask(db *gorm.DB, taskPayload models.TaskPayload, taskId uint) {
 }
 
 // delete
-func DeleteTask(db *gorm.DB, taskId int) {
+func DeleteTask(db *gorm.DB, taskId uint) {
 	// DELETE FROM users WHERE id = 10;
 	db.Delete(&Task{}, taskId)
 }
