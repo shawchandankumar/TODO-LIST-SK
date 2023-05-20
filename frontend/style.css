@@ -1,23 +1,95 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: yellowgreen;
+    background-color: #000;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #heading {
     font-size: 80px;
-    color: white;
+    color: rgb(166, 86, 86);
+
     text-align: center;
+}
+
+#show-add-task-form-btn {
+    padding: 20px;
+    border-radius: 50%;
+    border: 5px green;
+    font-size: 20px;
+    margin: 20px;
+}
+
+#content {
+    padding: 20px;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #create-task-container {
     display: none;
+    margin: 50px;
+}
+
+#todo-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
 }
 
 .todo-task {
     margin: 10px;
+    padding: 10px;
     background-color: yellow;
+    display: flex;
+    position: relative;
+    width: 400px;
+    min-height: 50px;
+}
+
+.icon-btn {
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.edit-btn {
+    bottom: 5px;
+    right: 5px;
+}
+
+.delete-btn {
+    top: 5px;
+    right: 5px;
+}
+
+
+.todo-task .todo-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-content .todo-task-content {
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 100;
+    margin-right: 20px;
+}
+
+.todo-content .todo-priority {
+    margin: 5px;
+}
+
+.todo-content .todo-title-content {
+    margin: 5px;
 }
 
 .Edit-todo-content {
