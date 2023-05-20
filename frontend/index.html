@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List App</title>
+</head>
+<body>
+    <h1 id="heading">Todo Task List</h1>
+
+    <button id="show-add-task-form-btn"><i class="fa-solid fa-plus"></i></button>
+
+    <form action="http://localhost:8080/tasks"  id="create-task-container">
+        <h3 id="title-label" class="input-label">Title</h3>
+        <input type="text" name="title">
+
+        <h3 id="todo-task-label" class="input-label">Todo Task</h3>
+        <input type="text" name="todo">
+
+        <h3 id="task-priority-label" class="input-label">Task Priority</h3>
+        <input type="text" name="priority">
+
+        <input type="hidden" name="userId" value="1">
+
+        <input type="submit" id="add-task-btn" class="btn" value="Add Todo">
+    </form>
+
+    <div id="todo-list-container">
+        <!-- <div id="id1" class="todo-task">
+            <button class="icon-btn edit-btn"><i class="fa-solid fa-pen"></i></button>
+            <button class="icon-btn delete-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="todo-content">
+                <span class="todo-priority">Priority 1</span>
+                <h3 class="todo-title-content">Sleep</h3>
+                <span class="todo-task-content">Sleeping makes the person feels better</span>
+            </div>
+            
+            <form action="http://localhost:8080/tasks" class="Edit-todo-content">
+                <label for="title">Title</label>
+                <input type="text" name="title" value="Sleep">
+
+                <label for="todo">Todo Task</label>
+                <input type="text" name="todo" value="Sleeping makes the person feels better">
+
+                <label for="priority">Priority</label>
+                <input type="text" name="priority" value="1">
+
+                <input type="submit" class="btn" id="edit-btn" value="Edit Todo">
+            </form>
+        </div> -->
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: yellowgreen;
+    text-align: center;
+}
+
+#heading {
+    font-size: 80px;
+    color: white;
+    text-align: center;
+}
+
+#create-task-container {
+    display: none;
+}
+
+.todo-task {
+    margin: 10px;
+    background-color: yellow;
+}
+
+.Edit-todo-content {
+    display: none;
+}

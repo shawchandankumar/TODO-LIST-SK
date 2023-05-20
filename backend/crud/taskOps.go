@@ -39,12 +39,13 @@ func GetTask(db *gorm.DB, taskId uint) Task {
 }
 
 // update
-func UpdateTask(db *gorm.DB, taskPayload models.TaskPayload, taskId uint) {
+func UpdateTask(db *gorm.DB, taskPayload models.TaskPayload, taskId uint) Task {
 	task := GetTask(db, taskId)
 	task.Title = taskPayload.Title
 	task.Todo = taskPayload.Todo
 	task.Priority = taskPayload.Priority
 	db.Save(&task)
+	return task
 }
 
 // delete
