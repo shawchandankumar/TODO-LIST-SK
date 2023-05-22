@@ -11,7 +11,7 @@ import (
 
 var DB **gorm.DB = nil
 
-func DbConfig() {
+func Init() {
 	dsn := "root:root@tcp(127.0.0.1:3307)/todo-list?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
@@ -30,6 +30,6 @@ func DbConfig() {
 }
 
 func GetDbConnection() **gorm.DB {
-	DbConfig()
+	Init()
 	return DB
 }
