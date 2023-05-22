@@ -2,13 +2,14 @@ package configuration
 
 import (
 	"fmt"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"models"
+	"todo-task/models"
 )
 
-var DB **gorm.DB = nil;
+var DB **gorm.DB = nil
 
 func DbConfig() {
 	dsn := "root:root@tcp(127.0.0.1:3307)/todo-list?charset=utf8mb4&parseTime=True&loc=Local"
@@ -18,7 +19,7 @@ func DbConfig() {
 		fmt.Println("There is some error connecting to database")
 		return
 	} else {
-		fmt.Println("Successfully connected to the database");
+		fmt.Println("Successfully connected to the database")
 	}
 
 	user1 := models.User{}
@@ -26,9 +27,9 @@ func DbConfig() {
 
 	db.AutoMigrate(&user1, &task1)
 	DB = &db
-	
 }
 
-func GetDbConnection () **gorm.DB {
-	return DB;
+func GetDbConnection() **gorm.DB {
+	DbConfig()
+	return DB
 }

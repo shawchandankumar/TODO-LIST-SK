@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main () {
+func main() {
 	fmt.Println("Started the project")
-    StartServer()
+	StartServer()
 }

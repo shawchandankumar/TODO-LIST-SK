@@ -1,46 +1,46 @@
-package crud
+package service
 
 import (
-	"models"
-
 	"gorm.io/gorm"
-)
 
+	"todo-task/configuration"
+	"todo-task/models"
+)
 
 type Tasks []models.Task
 type Task models.Task
 
+var db *gorm.DB = *(configuration.GetDbConnection())
 
 // create
-func AddNewTask(db *gorm.DB, taskPayload models.TaskPayload) Task {
+func AddNewTask(taskPayload models.TaskPayload) Task {
 	task := Task{Title: taskPayload.Title,
-				Todo: taskPayload.Todo,
-				Priority: taskPayload.Priority,
-				UserId: taskPayload.UserId}
+		Todo:     taskPayload.Todo,
+		Priority: taskPayload.Priority,
+		UserId:   taskPayload.UserId}
 
 	db.Create(&task)
 	return task
 }
 
 // read
-func GetAllTasks(db *gorm.DB) Tasks {
+func GetAllTasks() Tasks {
 	var tasks Tasks
 	// SELECT * FROM task WHERE name LIKE '%jin%';
 	db.Where("user_id = ? AND deleted_at IS NULL", 1).Find(&tasks)
 	return tasks
 }
 
-
 // get a task with the id taskId
-func GetTask(db *gorm.DB, taskId uint) Task {
+func GetTask(taskId uint) Task {
 	var task Task
 	db.Where("id = ?", taskId).Find(&task)
 	return task
 }
 
 // update
-func UpdateTask(db *gorm.DB, taskPayload models.TaskPayload, taskId uint) Task {
-	task := GetTask(db, taskId)
+func UpdateTask(taskPayload models.TaskPayload, taskId uint) Task {
+	task := GetTask(taskId)
 	task.Title = taskPayload.Title
 	task.Todo = taskPayload.Todo
 	task.Priority = taskPayload.Priority
@@ -49,7 +49,7 @@ func UpdateTask(db *gorm.DB, taskPayload models.TaskPayload, taskId uint) Task {
 }
 
 // delete
-func DeleteTask(db *gorm.DB, taskId uint) {
+func DeleteTask(taskId uint) {
 	// DELETE FROM users WHERE id = 10;
 	db.Delete(&Task{}, taskId)
 }
